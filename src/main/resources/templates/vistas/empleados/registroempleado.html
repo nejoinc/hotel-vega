@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmnls:th="http://www.thymealeaf.org">
+<head th:replace="/plantilla/template::head"></head>
+<body>
+    <div th:replace="/plantilla/template::hamburger"></div>
+	<div th:replace="/plantilla/template::frontpage"></div>
+
+    <!-- CREAR EL FORMULARIO PARA INGRESAR LOS DATOS -->
+	<div>
+		<form th:action="@{/vistas/empleados/save}" th:object="${empleado}" method="post">  
+			<div>
+                <label for="id">Identificacion</label> <br>
+                <input type="text" id="id" th:field="*{idEmpleado}" placeholder="Ingrese el documento del empleado">
+
+            </div>
+            <div>
+				<label for="nombres">Nombres del empleado:</label><br> 
+				<input type="text" id="nombres" th:field="*{nomEmpleado}" placeholder="Ingrese los nombres"> 
+			</div>
+            <div>
+				<label for="apellidos">Apellidos del empleado:</label> <br>
+				<input type="text" id="apellidos" th:field="*{apeEmpleado}" placeholder="Ingrese los apellidos"> 
+			</div>
+            <div>
+                <label for="edad">Edad del empelado</label> <br>
+                <input type="text" id="edad" th:field="*{edad}" placeholder="Ingrese la edad del empleado">
+            </div>
+            <div>
+                <label for="fecha">fecha de nacimiento</label> <br>
+                <input type="date" id="fecha" th:field="*{fechaNacimiento}" placeholder="Ingrese la fecha de nacimiento">
+            </div>
+            <div>
+				<label for="telefono">Telefono del Contacto:</label> <br>
+				<input type="text" id="telefono" th:field="*{telefono}" placeholder="Ingrese el telefono">
+			</div>
+            <br />
+			<div>
+				<input type="submit" value="Guardar" id="submit" name="submit"/>
+			</div>
+        </form>
+	</div>
+</body>
+</html>

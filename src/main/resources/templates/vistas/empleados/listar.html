@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" xmnls:th="http://www.thymealeaf.org">
+<head th:replace="/plantilla/template::head"></head>
+<body>
+    <!-- <h1>Hola</h1> -->
+    <div th:replace="/plantilla/template::hamburger"></div>
+	<div th:replace="/plantilla/template::frontpage"></div>
+    <a th:href="@{/vistas/empleados/create}">Registar empleado</a>
+
+    <div>
+		<header>
+			<h3>Empleados Almacenados</h3>
+		</header>
+		<table>
+			<thead>
+				<tr>
+					<th scope="col">Codigo</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">Telefono</th>
+					<!-- <th scope="col">Email</th> -->
+					<!-- Agregar las columnas para los botones editar y eliminar -->
+					<th scope="col">Editar</th>
+					<th scope="col">Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="emp:${empleado}">
+					<th scope="row" th:text="${emp.idEmpleado}"></th>
+					<td th:text="${emp.nomEmpleado}"></td>
+					<td th:text="${emp.apeEmpleado}"></td>
+					<td th:text="${emp.telefono}"></td>
+					<!-- <td th:text="${cont.email}"></td> -->
+					<td><a th:href="@{/vistas/empleados/edit/} + ${emp.idEmpleado}" th:text="Editar" title="Editar Registro"></a></td>
+					<td><a th:href="@{/vistas/empleados/delete/} + ${emp.idEmpleado}" th:text="Eliminar" title="Eliminar Registro"></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
