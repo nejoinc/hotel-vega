@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmnls:th="http://www.thymealeaf.org">
+<head th:replace="/plantilla/template::head"></head>
+<body>
+    <div th:replace="/plantilla/template::hamburger"></div>
+	<div th:replace="/plantilla/template::frontpage"></div>
+    
+      <!-- CREAR EL FORMULARIO PARA INGRESAR LOS DATOS -->
+	<div>
+        
+		<form th:action="@{/vistas/habitaciones/save}" th:object="${habitaciones}" method="post">  
+            <h3 class="titulo-tabla">Crea Habitacion</h3>
+			<div>
+                <label for="id">Id de habitacion</label> <br>
+                <input type="number" id="id" th:field="*{idHabitacion}" placeholder="Ingrese el documento del empleado">
+            </div>
+            <div>
+                <label for="numerohab">Numero de habitacion</label> <br>
+                <input type="number" id="numerohab" th:field="*{numeroHabitacion}" placeholder="Ingrese el documento del empleado">
+            </div>
+
+            <div>
+                <label for="tipohab">Tipo de habitacion</label> <br>
+                <select class="select" id="tipohab" th:field="*{tipoHabitacion}">
+                    <option value="" disabled selected>Seleccione el tipo de habitación</option>
+                    <option value="Sencilla">Sencilla</option>
+                    <option value="Doble">Doble</option>
+                    <option value="Multiple">Múltiple</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="piso">Piso para la habitacion</label> <br>
+                <select class="select" id="piso" th:field="*{piso}">
+                    <option value="0" disabled selected>Seleccione el piso donde estara la habitacion</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="10">20</option>
+                </select>
+            </div>
+        
+            <br />
+			<div >
+				<input class="link-registrar" type="submit" value="Guardar" id="submit" name="submit"/>
+			</div>
+        </form>
+	</div>
+    
+</body>
+</html>

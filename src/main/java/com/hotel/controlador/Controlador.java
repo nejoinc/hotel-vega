@@ -70,7 +70,7 @@ public class Controlador {
 		
 		modelo.addAttribute("titulo","Formulario: Editar Empleado");
 		modelo.addAttribute("empleado",empleado);
-		return "/vistas/contactos/registroempleado";
+		return "/vistas/empleados/registroempleado";
 	}
 	
 	//Ruta para eliminar

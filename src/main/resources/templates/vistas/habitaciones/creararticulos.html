@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmnls:th="http://www.thymealeaf.org">
+<head th:replace="/plantilla/template::head"></head>
+<body>
+    <div th:replace="/plantilla/template::hamburger"></div>
+	<div th:replace="/plantilla/template::frontpage"></div>
+<body>
+      <!-- CREAR EL FORMULARIO PARA INGRESAR LOS DATOS -->
+	<div>
+        
+		<form th:action="@{/vistas/habitaciones/saveart}" th:object="${articulos}" method="post">  
+            <h3 class="titulo-tabla">Crea Articulos</h3>
+			<div>
+                <label for="id">Id del articulo</label> <br>
+                <input type="number" id="id" th:field="*{idArticulo}" placeholder="Ingrese el id del articulo">
+            </div>
+                   
+            <div>
+                <label for="codigo">Codigo del articulo</label> <br>
+                <input type="number" id="codigo" th:field="*{codigo}" placeholder="Ingrese el codigo del articulo">
+            </div>
+
+            <div>
+                <label for="nombreart">Nombre del articulo</label> <br>
+                <input type="text" id="nombreart" th:field="*{nombreArticulo}" placeholder="Ingrese el codigo del articulo">
+            </div>
+
+            <div>
+                <label for="descart">Descripcion del articulo</label> <br>
+                <input type="text" id="descart" th:field="*{descripcion}" placeholder="Ingrese el codigo del articulo">
+            </div>
+
+            <br />
+			<div >
+				<input class="link-registrar" type="submit" value="Guardar" id="submit" name="submit"/>
+			</div>
+        </form>
+	</div>
+</body>
+</html>

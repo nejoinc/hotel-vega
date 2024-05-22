@@ -5,13 +5,12 @@
     <!-- <h1>Hola</h1> -->
     <div th:replace="/plantilla/template::hamburger"></div>
 	<div th:replace="/plantilla/template::frontpage"></div>
-    <a th:href="@{/vistas/empleados/create}">Registar empleado</a>
 
     <div>
 		<header>
-			<h3>Empleados Almacenados</h3>
+			<h3 class="titulo-tabla">Empleados Almacenados</h3>
 		</header>
-		<table>
+		<table class="tabla-estilos">
 			<thead>
 				<tr>
 					<th scope="col">Codigo</th>
@@ -31,11 +30,14 @@
 					<td th:text="${emp.apeEmpleado}"></td>
 					<td th:text="${emp.telefono}"></td>
 					<!-- <td th:text="${cont.email}"></td> -->
-					<td><a th:href="@{/vistas/empleados/edit/} + ${emp.idEmpleado}" th:text="Editar" title="Editar Registro"></a></td>
-					<td><a th:href="@{/vistas/empleados/delete/} + ${emp.idEmpleado}" th:text="Eliminar" title="Eliminar Registro"></a></td>
+					<td><a class="edit-link" th:href="@{/vistas/empleados/edit/} + ${emp.idEmpleado}" th:text="Editar" title="Editar Registro"></a></td>
+					<td><a class="delete-link" th:href="@{/vistas/empleados/delete/} + ${emp.idEmpleado}" th:text="Eliminar" title="Eliminar Registro"></a></td>
 				</tr>
 			</tbody>
 		</table>
+
+		<a class="link-registrar" th:href="@{/vistas/empleados/create}">Registar empleado</a>
+
 	</div>
 </body>
 </html>

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Hotel Señor Vega</title>
-	<link rel="icon" type="image/x-icon" href="../hotel/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="../../static/assets/redes-sociales/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
 	<link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="stylesheet" media="screen and (max-width: 850px)" th:href="@{/css/handset_index.css}">
@@ -30,19 +30,19 @@
 						<a th:href="@{/}">inicio</a>
 					</li>
 					<li>
-						<a href="#about">Huespedes</a>
+						<a th:href="@{/vistas/huespedes/}">Huespedes</a>
 					</li>
 					<li>
 						<a th:href="@{/vistas/empleados/}">Empleados</a>
 					</li>
 					<li>
-						<a href="#rooms">Habitaciones</a>
+						<a th:href="@{/vistas/habitaciones/}">Habitaciones</a>
 					</li>
 					<li>
 						<a href="#contact">Reservas</a>
 					</li>
 					<li>
-						<a href="#contact">Ingreso & Salida</a>
+						<a th:href="@{/vistas/checkin/}">Ingreso & Salida</a>
 					</li>
 					<li>
 						<a href="#contact">Reportes</a>

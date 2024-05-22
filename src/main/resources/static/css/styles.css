@@ -35,17 +35,22 @@
 }
 
 button {
-    padding: 7px 75px;
-    background-color: #8d0003;
+    padding: 10px 50px;
+    background-color: black;
     color: whitesmoke;
-    margin-top: 22px;
+    border: none;
+    border-radius: 25px;
+    margin-top: 20px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
 button:hover {
     background-color: whitesmoke;
-    color: #8d0003;
-    font-weight: bold;
+    color: black;
+    transform: scale(1.05);
 }
 
 .frontpage {
@@ -74,33 +79,39 @@ button:hover {
 }
 
 .navbar {
-    padding-top: 14.5px;
+    padding-top: 15px;
     position: sticky;
+    top: 0;
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: center;
+    z-index: 1000; /* Para asegurarse de que se superponga a otros elementos */
 }
 
 .navbar ul {
     list-style: none;
     display: flex;
-    padding: 12px;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    margin: 0 10px; /* Espaciado entre los elementos */
 }
 
 .navbar #navbarmain li a {
     font-size: 17px;
     color: white;
     text-decoration: none;
-    padding-left: 19px;
-    padding-right: 19px;
+    padding: 10px 20px;
+    transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+    border-radius: 15px;
 }
 
 .navbar #navbarmain li a:hover {
-    color: #8d0003;
-    font-size: 17px;
+    color: black;
     background-color: whitesmoke;
-    border-radius: 15px;
 }
 
 .social {
@@ -423,4 +434,135 @@ footer {
     justify-content: center;
     height: 35px;
     padding-top: 7px;
+}
+
+.tabla-estilos {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 18px; 
+    text-align: left; 
+    background-color: #fff; 
+    border-radius: 5px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
+}
+
+.tabla-estilos thead tr {
+    background-color: #16191f; 
+    counter-reset: #fff;
+    text-align: left;
+    color: white;
+}
+
+.tabla-estilos th, .tabla-estilos td {
+    padding: 12px 15px;
+}
+
+.tabla-estilos tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.tabla-estilos tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.tabla-estilos tbody tr:last-of-type {
+    border-bottom: 2px solid white;
+}
+
+.tabla-estilos tbody tr:hover {
+    background-color: white;
+}
+
+.edit-link, .delete-link {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.edit-link:hover, .delete-link:hover {
+    color: black;
+}
+
+.titulo-tabla {
+    text-align: center;
+}
+
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="submit"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="text"], input[type="number"] {
+    margin-bottom: 10px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+
+
+
+.link-registrar {
+    display: inline-block; 
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    background-color: #e7e7e7;
+    padding: 10px 10px;
+    border-radius: 25px; 
+    margin: 20px 0; 
+    transition: background-color 0.3s, color 0.3s; 
+    border: none; /* Para quitar el borde predeterminado del input */
+
+}
+
+.link-registrar:hover {
+    transition: all .5s;
+    cursor: pointer; 
+    color: white;
+    background-color: black; 
+}
+
+.select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.select:focus {
+    border-color: #66afe9;
+    outline: none;
 }

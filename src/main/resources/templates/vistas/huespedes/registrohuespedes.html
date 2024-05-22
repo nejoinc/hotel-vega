@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmnls:th="http://www.thymealeaf.org">
+<head th:replace="/plantilla/template::head"></head>
+<body>
+    <div th:replace="/plantilla/template::hamburger"></div>
+	<div th:replace="/plantilla/template::frontpage"></div>
+
+    <!-- CREAR EL FORMULARIO PARA INGRESAR LOS DATOS -->
+	<div>
+        
+		<form th:action="@{/vistas/huespedes/save}" th:object="${huesped}" method="post">  
+            <h3 class="titulo-tabla">Registra el Huesped</h3>
+			<div>
+                <label for="id">Identificacion</label> <br>
+                <input type="text" id="id" th:field="*{idHuespede}" placeholder="Ingrese el documento del empleado">
+            </div>
+            <div>
+				<label for="nombres">Nombres del empleado:</label><br> 
+				<input type="text" id="nombres" th:field="*{nombre}" placeholder="Ingrese los nombres"> 
+			</div>
+            <div>
+                <label for="edad">Edad del empelado</label> <br>
+                <input type="text" id="edad" th:field="*{edad}" placeholder="Ingrese la edad del empleado">
+            </div>
+            <div>
+				<label for="direccion">Direccion</label> <br>
+				<input type="text" id="direccion" th:field="*{direccion}" placeholder="Ingrese la direccion"> 
+			</div>
+            <div>
+				<label for="telefono">Telefono del Contacto:</label> <br>
+				<input type="text" id="telefono" th:field="*{telefono}" placeholder="Ingrese el telefono">
+			</div>
+            <div>
+                <label for="genero">Genero</label> <br>
+                <input type="text" id="genero" th:field="*{genero}" placeholder="Ingrese genero">
+            </div>
+            <div>
+                <label for="motivo">Motivo</label> <br>
+                <input type="text" id="motivo" th:field="*{motivo}" placeholder="Motivo">
+            </div>
+
+            <div>
+                <label for="acompanante">Acompañante</label> <br>
+                <input type="text" id="acompanante" th:field="*{acompañante}" placeholder="Acompañante">
+            </div>
+            <br />
+			<div >
+				<input class="link-registrar" type="submit" value="Guardar" id="submit" name="submit"/>
+			</div>
+        </form>
+	</div>
+</body>
+</html>

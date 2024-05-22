@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="es" xmnls:th="http://www.thymealeaf.org">
+<head th:replace="/plantilla/template::head"></head>
+<body>
+    <div th:replace="/plantilla/template::hamburger"></div>
+    <div th:replace="/plantilla/template::frontpage"></div>
+
+    <div>
+		<header>
+			<h3 class="titulo-tabla">Habitaciones Registradas</h3>
+		</header>
+		<table class="tabla-estilos">
+			<thead>
+				<tr>
+					<th scope="col">Codigo Habitacion</th>
+					<th scope="col">Numero Habitacion</th>
+					<th scope="col">Tipo Habitacion</th>
+					<th scope="col">Piso</th>
+                    <th scope="col">Editar</th>
+					<th scope="col">Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="hab:${habitaciones}">
+					<th scope="row" th:text="${hab.idHabitacion}"></th>
+					<td th:text="${hab.numeroHabitacion}"></td>
+					<td th:text="${hab.tipoHabitacion}"></td>
+					<td th:text="${hab.piso}"></td>
+					<td><a class="edit-link" th:href="@{/vistas/habitaciones/edit/} + ${hab.idHabitacion}" th:text="Editar" title="Editar Registro"></a></td>
+					<td><a class="delete-link" th:href="@{/vistas/habitaciones/delete/} + ${hab.idHabitacion}" th:text="Eliminar" title="Eliminar Registro"></a></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a class="link-registrar" th:href="@{/vistas/habitaciones/create}">Crear Habitacion</a>
+
+	</div>
+
+    <div>
+		<header>
+			<h3 class="titulo-tabla">Articulos Registrados</h3>
+		</header>
+		<table class="tabla-estilos">
+			<thead>
+				<tr>
+					<th scope="col">Id Articulo</th>
+					<th scope="col">Codigo Articulo</th>
+					<th scope="col">Nombre Articulo</th>
+					<th scope="col">Descripcion Articulo</th>
+                    <th scope="col">Editar</th>
+					<th scope="col">Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="art:${articulos}">
+					<th scope="row" th:text="${art.idArticulo}"></th>
+					<td th:text="${art.codigo}"></td>
+					<td th:text="${art.nombreArticulo}"></td>
+					<td th:text="${art.descripcion}"></td>
+					<td><a class="edit-link" th:href="@{/vistas/habitaciones/editart/} + ${art.idArticulo}" th:text="Editar" title="Editar Registro"></a></td>
+					<td><a class="delete-link" th:href="@{/vistas/habitaciones/deleteart/} + ${art.idArticulo}" th:text="Eliminar" title="Eliminar Registro"></a></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a class="link-registrar" th:href="@{/vistas/habitaciones/createart}">Crear Articulos</a>
+
+	</div>
+</body>
+</html>
