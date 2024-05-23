@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" xmnls:th="http://www.thymealeaf.org">
+<head th:replace="/plantilla/template::head"></head>
+<body>
+    <div th:replace="/plantilla/template::hamburger"></div>
+    <div th:replace="/plantilla/template::frontpage"></div>
+
+    <div>
+        
+		<form th:action="@{/vistas/reservas/save}" th:object="${reservas}" method="post">  
+            <h3 class="titulo-tabla">Reserva para el huesped</h3>
+			<div>
+                <label for="id">Identificacion del empleado</label> <br>
+                <input type="text" id="id" th:field="*{idEmpleado}" placeholder="Ingrese el documento del empleado" onblur="fetchEmpleadoData()">
+            </div>
+            <div>
+				<label for="nombresEmpleado">Nombres del empleado:</label><br> 
+				<input type="text" id="nombresEmpleado" th:field="*{nomEmpleado}" placeholder="Ingrese los nombres"> 
+			</div>
+            <div>
+				<label for="apellidosEmpleado">Apellidos del empleado:</label><br> 
+				<input type="text" id="apellidosEmpleado" th:field="*{apeEmpleado}" placeholder="Ingrese los apellidos"> 
+			</div>
+            <br />
+
+            <div>
+                <label for="id">Identificacion del huesped</label> <br>
+                <input type="text" id="idHuesped" th:field="*{idHuespede}" placeholder="Ingrese el documento del empleado" onblur="fetchHuespedData()">
+            </div>
+            <div>
+				<label for="nombresHuesped">Nombres del huesped:</label><br> 
+				<input type="text" id="nombresHuesped" th:field="*{nomHuesped}" placeholder="Ingrese los nombres"> 
+			</div>
+
+            <div>
+				<label for="habitacion">Habitacion:</label><br> 
+				<select class="select" id="tipoHabitacion" th:field="*{habitacion}">
+                    <option value="" disabled selected>Seleccione el tipo de habitación</option>
+                    <option value="Sencilla">Sencilla</option>
+                    <option value="Doble">Doble</option>
+                    <option value="Multiple">Múltiple</option>
+                </select>
+			</div>
+
+            <br />
+
+            <div >
+				<input class="link-registrar" type="submit" value="Guardar" id="submit" name="submit"/>
+			</div>
+        </form>
+	</div>
+
+    <script>
+        function fetchEmpleadoData() {
+            var idEmpleado = document.getElementById('id').value;
+            if (idEmpleado) {
+                $.ajax({
+                    url: '/vistas/empleados/' + idEmpleado,
+                    method: 'GET',
+                    success: function(data) {
+                        if (data) {
+                            $('#nombresEmpleado').val(data.nomEmpleado);
+                            $('#apellidosEmpleado').val(data.apeEmpleado);
+                        } else {
+                            alert('Empleado no encontrado');
+                        }
+                    }
+                });
+            }
+        }
+
+        function fetchHuespedData() {
+            var idHuesped = document.getElementById('idHuesped').value;
+            if (idHuesped) {
+                $.ajax({
+                    url: '/vistas/huespedes/' + idHuesped,
+                    method: 'GET',
+                    success: function(data) {
+                        if (data) {
+                            $('#nombresHuesped').val(data.nombre);
+                        } else {
+                            alert('Huesped no encontrado');
+                        }
+                    }
+                });
+            }
+        }
+
+    </script>
+    
+    
+</body>
+</html>

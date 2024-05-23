@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmnls:th="http://www.thymealeaf.org">
+<head th:replace="/plantilla/template::head"></head>
+<body>
+    <div th:replace="/plantilla/template::hamburger"></div>
+	<div th:replace="/plantilla/template::frontpage"></div>
+
+    <div>
+        
+		<form th:action="@{/vistas/servicios/save}" th:object="${servicios}" method="post">  
+            <h3 class="titulo-tabla">Crea el servicio</h3>
+			<div>
+                <label for="id">Id del servicio</label> <br>
+                <input type="number" id="id" th:field="*{idServicio}" placeholder="Ingrese el documento del empleado">
+            </div>
+
+            <div>
+                <label for="nombre">Nombre del servicio</label> <br>
+                <input type="text" id="nombre" th:field="*{nombre}" placeholder="Ingrese el nombre del servicio">
+            </div>
+
+            <div>
+                <label for="precio">Precio del servicio</label> <br>
+                <input type="number" id="precio" th:field="*{precio}" placeholder="Ingrese el precio del servicio">
+            </div>
+
+            <div>
+                <label for="detalle">Detalle del servicio</label> <br>
+                <input type="text" id="detalle" th:field="*{detalle}" placeholder="Ingrese el detalle del servicio">
+            </div>
+          
+            <br />
+			<div >
+				<input class="link-registrar" type="submit" value="Guardar" id="submit" name="submit"/>
+			</div>
+        </form>
+	</div>
+</body>
+</html>

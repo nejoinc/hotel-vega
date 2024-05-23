@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmnls:th="http://www.thymealeaf.org">
+<head th:replace="/plantilla/template::head"></head>
+<body>
+    <div th:replace="/plantilla/template::hamburger"></div>
+    <div th:replace="/plantilla/template::frontpage"></div>
+
+
+    <div>
+		<header>
+			<h3 class="titulo-tabla">Servicios Almacenados</h3>
+		</header>
+		<table class="tabla-estilos">
+			<thead>
+				<tr>
+					<th scope="col">Id del servicio</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Precio</th>
+					<th scope="col">Detalle</th>
+					<th scope="col">Editar</th>
+					<th scope="col">Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="ser:${servicios}">
+					<th scope="row" th:text="${ser.idServicio}"></th>
+					<td th:text="${ser.nombre}"></td>
+					<td th:text="${ser.precio}"></td>
+					<td th:text="${ser.detalle}"></td>
+					<td><a class="edit-link" th:href="@{/vistas/servicios/edit/} + ${ser.idServicio}" th:text="Editar" title="Editar Registro"></a></td>
+					<td><a class="delete-link" th:href="@{/vistas/servicios/delete/} + ${ser.idServicio}" th:text="Eliminar" title="Eliminar Registro"></a></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a class="link-registrar" th:href="@{/vistas/servicios/create}">Crear servicio</a>
+
+	</div>
+</body>
+</html>

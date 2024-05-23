@@ -3,6 +3,8 @@ package com.hotel.controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -91,6 +93,17 @@ public class Controlador {
 		//Invocar el servicio de eliminar
 		empleadoServicio.eliminar(idEmpleado);
 		return "redirect:/vistas/empleados/";
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Empleado> buscarPorId(@PathVariable Integer id) {
+		Empleado empleado = empleadoServicio.buscarPorId(id);
+		
+		if(empleado != null) {
+			return ResponseEntity.ok(empleado);
+		} else {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
 	}
 	
 }

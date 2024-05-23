@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hotel.modelo.entidad.Articulos;
-import com.hotel.modelo.entidad.Checkin;
 import com.hotel.modelo.entidad.Habitaciones;
 import com.hotel.modelo.servicio.IArticulosServicio;
 

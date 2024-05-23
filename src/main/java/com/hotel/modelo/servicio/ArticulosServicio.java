@@ -23,7 +23,7 @@ public class ArticulosServicio implements IArticulosServicio {
 	}
 
 
-    	public void guardar(Articulos articulos) {
+    public void guardar(Articulos articulos) {
 		articulosRepositorio.save(articulos);
 	}
 
