@@ -95,15 +95,6 @@ public class Controlador {
 		return "redirect:/vistas/empleados/";
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<Empleado> buscarPorId(@PathVariable Integer id) {
-		Empleado empleado = empleadoServicio.buscarPorId(id);
-		
-		if(empleado != null) {
-			return ResponseEntity.ok(empleado);
-		} else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-		}
-	}
+
 	
 }

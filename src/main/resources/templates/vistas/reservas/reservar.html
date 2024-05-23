@@ -9,9 +9,13 @@
         
 		<form th:action="@{/vistas/reservas/save}" th:object="${reservas}" method="post">  
             <h3 class="titulo-tabla">Reserva para el huesped</h3>
+            <div>
+				<label for="idReserva">Id reserva</label><br> 
+				<input type="number" id="idReserva" th:field="*{idReserva}" placeholder=""> 
+			</div>
 			<div>
-                <label for="id">Identificacion del empleado</label> <br>
-                <input type="text" id="id" th:field="*{idEmpleado}" placeholder="Ingrese el documento del empleado" onblur="fetchEmpleadoData()">
+                <label for="idEmpleado">Identificacion del empleado</label> <br>
+                <input type="number" id="idEmpleado" th:field="*{idEmpleado}" placeholder="Ingrese el documento del empleado" onblur="fetchEmpleadoData()">
             </div>
             <div>
 				<label for="nombresEmpleado">Nombres del empleado:</label><br> 
@@ -24,8 +28,8 @@
             <br />
 
             <div>
-                <label for="id">Identificacion del huesped</label> <br>
-                <input type="text" id="idHuesped" th:field="*{idHuespede}" placeholder="Ingrese el documento del empleado" onblur="fetchHuespedData()">
+                <label for="idHuesped">Identificacion del huesped</label> <br>
+                <input type="number" id="idHuesped" th:field="*{idHuespede}" placeholder="Ingrese el documento del empleado" onblur="fetchHuespedData()">
             </div>
             <div>
 				<label for="nombresHuesped">Nombres del huesped:</label><br> 
@@ -51,18 +55,17 @@
 	</div>
 
     <script>
-        function fetchEmpleadoData() {
-            var idEmpleado = document.getElementById('id').value;
+         function fetchEmpleadoData() {
+            var idEmpleado = document.getElementById('idEmpleado').value;
             if (idEmpleado) {
                 $.ajax({
-                    url: '/vistas/empleados/' + idEmpleado,
+                    url: '/vistas/empelados/' + idEmpleado,
                     method: 'GET',
                     success: function(data) {
                         if (data) {
                             $('#nombresEmpleado').val(data.nomEmpleado);
-                            $('#apellidosEmpleado').val(data.apeEmpleado);
                         } else {
-                            alert('Empleado no encontrado');
+                            alert('Huesped no encontrado');
                         }
                     }
                 });

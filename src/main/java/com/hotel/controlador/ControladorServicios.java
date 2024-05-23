@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.hotel.modelo.entidad.Empleado;
 import com.hotel.modelo.entidad.Huesped;
 import com.hotel.modelo.entidad.Servicios;
 import com.hotel.modelo.servicio.IServiciosServicio;
@@ -48,4 +50,45 @@ public class ControladorServicios {
       serviciosServicio.guardar(servicios);
       return "redirect:/vistas/servicios/";
     }
+
+
+      //Ruta para editar
+	@GetMapping("/edit/{id}")
+	public String editar(@PathVariable("id") int idServicio,Model modelo) {
+		
+		Servicios servicios=new Servicios();
+		//Validar si el ID existe
+		if(idServicio>0) {
+			servicios=serviciosServicio.buscarPorId(idServicio);
+			if(servicios==null) {
+				return "redirect:/vistas/servicios/";
+			}
+		}else {
+			return "redirect:/vistas/servicios/";
+		}
+		
+		modelo.addAttribute("titulo","Formulario: Editar Empleado");
+		modelo.addAttribute("servicios",servicios);
+		return "/vistas/servicios/crearservicio";
+	}
+	
+	//Ruta para eliminar
+	@GetMapping("/delete/{id}")
+	public String eliminar(@PathVariable("id") Integer idServicio) {
+		
+		Servicios servicios=new Servicios();
+		//Validar si el ID existe
+		if(idServicio>0) {
+			servicios=serviciosServicio.buscarPorId(idServicio);
+			if(servicios==null) {
+				return "redirect:/vistas/servicios/";
+			}
+		}else {
+				return "redirect:/vistas/servicios/";
+		}
+		
+		//Invocar el servicio de eliminar
+		serviciosServicio.eliminar(idServicio);
+		return "redirect:/vistas/servicios/";
+	}
 }

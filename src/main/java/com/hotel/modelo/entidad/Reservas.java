@@ -12,20 +12,12 @@ public class Reservas {
     private int idHabitacion;
     private int idHuespede; 
     private int idEmpleado;
+    private int idReserva;
     private String nomEmpleado;
     private String apeEmpleado;
     private String nomHuesped; 
     private String apeHuesped;
     private String habitacion;
-
-    
-
-    public String getHabitacion() {
-        return habitacion;
-    }
-    public void setHabitacion(String habitacion) {
-        this.habitacion = habitacion;
-    }
     public int getIdHabitacion() {
         return idHabitacion;
     }
@@ -44,24 +36,23 @@ public class Reservas {
     public void setIdEmpleado(int idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
-
+    public int getIdReserva() {
+        return idReserva;
+    }
+    public void setIdReserva(int idReserva) {
+        this.idReserva = idReserva;
+    }
     public String getNomEmpleado() {
         return nomEmpleado;
     }
     public void setNomEmpleado(String nomEmpleado) {
         this.nomEmpleado = nomEmpleado;
     }
-    
     public String getApeEmpleado() {
         return apeEmpleado;
     }
     public void setApeEmpleado(String apeEmpleado) {
         this.apeEmpleado = apeEmpleado;
-    }
-    @Override
-    public String toString() {
-        return "Reservas [idHabitacion=" + idHabitacion + ", idHuespede=" + idHuespede + ", idEmpleado=" + idEmpleado
-                + ", nomEmpleado=" + nomEmpleado + ", apeEmpleado=" + apeEmpleado + "]";
     }
     public String getNomHuesped() {
         return nomHuesped;
@@ -74,7 +65,23 @@ public class Reservas {
     }
     public void setApeHuesped(String apeHuesped) {
         this.apeHuesped = apeHuesped;
-    }  
+    }
+    public String getHabitacion() {
+        return habitacion;
+    }
+    public void setHabitacion(String habitacion) {
+        this.habitacion = habitacion;
+    }
+    @Override
+    public String toString() {
+        return "Reservas [idHabitacion=" + idHabitacion + ", idHuespede=" + idHuespede + ", idEmpleado=" + idEmpleado
+                + ", idReserva=" + idReserva + ", nomEmpleado=" + nomEmpleado + ", apeEmpleado=" + apeEmpleado
+                + ", nomHuesped=" + nomHuesped + ", apeHuesped=" + apeHuesped + ", habitacion=" + habitacion + "]";
+    }
+
+    
+
+  
 
     
 
