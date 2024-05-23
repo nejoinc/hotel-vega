@@ -63,7 +63,7 @@ public class ControladorReservas {
     }
 
      
-    @PostMapping("/delete/{id}") 
+    @GetMapping("/delete/{id}") 
     public String eliminar(@PathVariable("id") Integer idReserva) {
         Reservas reservas = new Reservas(); 
         if(idReserva>0) {
